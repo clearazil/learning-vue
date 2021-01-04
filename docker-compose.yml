@@ -1,0 +1,55 @@
+version: "3.7"
+
+services:
+
+  php:
+    build:
+      args:
+        user: laraveluser
+        uid: 1000
+      context: ./.docker/php
+    networks: [backend]
+    volumes:
+        [.:/app]
+    container_name: learning-vue-php
+
+  node:
+    build:
+      args:
+        user: nodeuser
+        uid: 1001
+      context: ./.docker/node
+    networks: [frontend, backend]
+    volumes:
+      [.:/app]
+    ports:
+      [1234:1234]
+    container_name: learning-vue-node
+    tty: true
+
+  apache:
+    build:
+      context: ./.docker/apache
+    depends_on: [php, mysql]
+    networks: [frontend, backend]
+    ports:
+      [8080:80]
+    volumes:
+      [.:/app]
+    container_name: learning-vue-apache
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    networks: [backend]
+    ports:
+      [13307:3306]
+    environment:
+      MYSQL_DATABASE: learning-vue
+      MYSQL_USER: app
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    container_name: learning-vue-mysql
+networks:
+  frontend:
+  backend:
