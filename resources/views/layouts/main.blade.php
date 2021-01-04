@@ -6,12 +6,16 @@
 -->
 <html>
 	<head>
-		<title>Editorial by HTML5 UP</title>
+		<title>{{ config('app.name', 'Laravel') }}</title>
 		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-		<link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+        <style>
+            .is-loading { background: red; }
+            .is-done { background: blue; }
+        </style>
 	</head>
 	<body class="is-preload">
 
@@ -140,6 +144,7 @@
 			<script src="{{ asset('js/util.js') }}"></script>
             <script src="{{ asset('js/main.js') }}"></script>
             <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+            <script src="{{ asset('js/app.js') }}"></script>
 
 	</body>
 </html>
