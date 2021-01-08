@@ -1,9 +1,8 @@
 @extends('layouts.main')
 @section('content')
 
-    <!-- Banner -->
-    <section id="banner">
-        <div class="content" id="root">
+    <section>
+        <div class="container" id="root">
             <p>The value of the input is @{{ message }}</p>
             <p>This is the message reversed @{{ reversedMessage }}</p>
             <input type="text" id="input" v-model="message">
@@ -26,10 +25,9 @@
             <ul>
                 <li v-for="task in incompleteTasks" v-text="task.description"></li>
             </ul>
+            <task-list></task-list>
+            <message-card title="New box" body="Dolar sit amet"></message-card>
         </div>
-        <span class="image object">
-            <img src="{{ asset('images/pic10.jpg') }}" alt="" />
-        </span>
     </section>
 
 @endsection
