@@ -27,6 +27,9 @@
             </ul>
             <task-list></task-list>
             <message-card title="New box" body="Dolar sit amet"></message-card>
+
+            <modal-box v-if="showModal" @close="showModal = false">This is a text in modal.</modal-box>
+            <button @click="showModal = true">Show Modal</button>
         </div>
     </section>
 

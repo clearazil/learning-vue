@@ -38,6 +38,30 @@ Vue.component('task-item', {
     template: '<li><slot></slot></li>',
 });
 
+Vue.component('modal-box', {
+    template: `
+        <div class="modal" style="display: block;" tabindex="-1" role="dialog" data-show="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="$emit('close')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><slot></slot></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="$emit('close')">Close</button>
+                        <button type="button" class="btn btn-primary" @click="$emit('close')">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+});
+
 new Vue({
     el: '#root',
     data: {
@@ -56,6 +80,7 @@ new Vue({
             {description: 'Go to this 7', completed: true},
             {description: 'Go to this 8', completed: false},
         ],
+        showModal: false,
     },
     computed: {
         reversedMessage() {
