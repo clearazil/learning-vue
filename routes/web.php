@@ -18,3 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/tabs', [IndexController::class, 'tabs']);
+Route::get('/component-communication', [IndexController::class, 'componentCommunication']);
