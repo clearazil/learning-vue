@@ -15,6 +15,7 @@
         "vue"
     ],
     "rules": {
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "max-len": ["error", { "code": 120 }]
     }
 }

@@ -45,7 +45,12 @@ Vue.component('modal-box', {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="$emit('close')">
+                        <button class="close"
+                            type="button"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                            @click="$emit('close')">
+
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -53,7 +58,12 @@ Vue.component('modal-box', {
                         <p><slot></slot></p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="$emit('close')">Close</button>
+                        <button class="btn btn-secondary"
+                            type="button"
+                            data-dismiss="modal"
+                            @click="$emit('close')">
+                            Close
+                        </button>
                         <button type="button" class="btn btn-primary" @click="$emit('close')">Save changes</button>
                     </div>
                 </div>
