@@ -15,4 +15,9 @@ class IndexController extends Controller
     {
         return view('index.componentCommunication');
     }
+
+    public function modal()
+    {
+        return view('index.modal');
+    }
 }

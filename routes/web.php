@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 Route::get('/tabs', [IndexController::class, 'tabs']);
 Route::get('/component-communication', [IndexController::class, 'componentCommunication']);
+Route::get('/modal', [IndexController::class, 'modal']);
