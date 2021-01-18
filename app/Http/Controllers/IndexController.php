@@ -20,4 +20,9 @@ class IndexController extends Controller
     {
         return view('index.modal');
     }
+
+    public function ajaxRequests()
+    {
+        return view('index.ajaxRequests');
+    }
 }
