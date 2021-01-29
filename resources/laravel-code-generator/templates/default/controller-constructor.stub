@@ -3,8 +3,7 @@
      *
      * @return void
      */
-	public function __construct()
-	{
-	    [% auth_middleware %]
-	}
-	
+    public function __construct()
+    {
+        [% auth_middleware %]
+    }

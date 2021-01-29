@@ -18,7 +18,7 @@
             <div class="pull-right">
 
                 <button data-toggle="collapse" data-parent="#index-documentation" href="#index" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="bi-chevron-down"></span>
                 </button>
 
             </div>
@@ -183,7 +183,7 @@
             <div class="pull-right">
 
                 <button data-toggle="collapse" data-parent="#store-documentation" href="#store" class="btn btn-success btn-xs">
-                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="bi-chevron-down"></span>
                 </button>
 
             </div>
@@ -193,7 +193,7 @@
         <div class="panel-collapse collapse" id="store">
             <div class="panel-body">
                 <h3><strong>[% request_title %]</strong></h3>
-                
+
                 @include('[% path_to_view_home %]fields-list', [
                     'withValidation' => true
                 ])
@@ -225,7 +225,7 @@
             <div class="pull-right">
 
                 <button data-toggle="collapse" data-parent="#update-documentation" href="#update" class="btn btn-warning btn-xs">
-                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="bi-chevron-down"></span>
                 </button>
 
             </div>
@@ -246,7 +246,7 @@
                 <h3><strong>[% response_title %]</strong></h3>
                 <p>[% update_route_response_description %]</p>
                 <p></p>
-                
+
                 @include('[% path_to_view_home %]retrieved')
                 @include('[% path_to_view_home %]failed-to-retrieve')
                 @include('[% path_to_view_home %]failed-validation')
@@ -269,7 +269,7 @@
             <div class="pull-right">
 
                 <button data-toggle="collapse" data-parent="#show-documentation" href="#show" class="btn btn-info btn-xs">
-                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="bi-chevron-down"></span>
                 </button>
 
 
@@ -281,7 +281,7 @@
             <div class="panel-body">
 
                 <h3><strong>[% request_title %]</strong></h3>
-                
+
                 <table class="table table-stripped">
                     <thead>
                         <tr>
@@ -329,7 +329,7 @@
             <div class="pull-right">
 
                 <button data-toggle="collapse" data-parent="#destroy-documentation" href="#destroy" class="btn btn-danger btn-xs">
-                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="bi-chevron-down"></span>
                 </button>
 
             </div>
@@ -387,7 +387,7 @@
             <div class="pull-right">
 
                 <button data-toggle="collapse" data-parent="#[% model_name %]-model-documentation" href="#[% model_name %]-model" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-chevron-up"></span>
+                    <span class="bi-chevron-up"></span>
                 </button>
 
             </div>
