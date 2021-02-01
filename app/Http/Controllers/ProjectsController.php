@@ -41,17 +41,11 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $data = $this->getData($request);
+        $data = $this->getData($request);
 
-            Project::create($data);
+        Project::create($data);
 
-            return redirect()->route('projects.project.index')
-                ->with('success_message', 'Project was successfully added.');
-        } catch (Exception $exception) {
-            return back()->withInput()
-                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
-        }
+        return ['message' => 'Project created!'];
     }
 
     /**
@@ -137,8 +131,8 @@ class ProjectsController extends Controller
     protected function getData(Request $request)
     {
         $rules = [
-                'name' => 'string|min:1|max:255|nullable',
-            'description' => 'string|min:1|max:1000|nullable',
+            'name' => 'required|string|min:1|max:255',
+            'description' => 'required|string|min:1|max:1000',
         ];
 
         $data = $request->validate($rules);

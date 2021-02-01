@@ -3,7 +3,7 @@
 @section('content')
 
     <section>
-        <div class="container">
+        <div class="container" id="app">
             <div class="panel panel-default">
 
                 <div class="panel-heading clearfix">
@@ -30,7 +30,11 @@
                         </ul>
                     @endif
 
-                    <form method="POST" action="{{ route('projects.project.store') }}" accept-charset="UTF-8" id="create_project_form" name="create_project_form" class="form-horizontal">
+                    <form method="POST" action="{{ route('projects.project.store') }}" accept-charset="UTF-8"
+                        id="create_project_form" name="create_project_form" class="form-horizontal"
+                        @submit.prevent="onSubmit" @keydown="errors.clear($event.target.name)"
+
+                    >
                     {{ csrf_field() }}
                     @include ('projects.form', [
                                                 'project' => null,
@@ -38,7 +42,7 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <input class="btn btn-primary" type="submit" value="Add">
+                                <input class="btn btn-primary" :disabled="errors.any()" type="submit" value="Add">
                             </div>
                         </div>
 
@@ -54,7 +58,7 @@
 @section('scripts')
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="{{ asset('js/projects.js') }}"></script>
+    <script src="{{ asset('js/projects.js') }}" type="module"></script>
 
 @endsection
 
