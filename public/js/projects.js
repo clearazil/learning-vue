@@ -1,6 +1,31 @@
 /**
  *
  */
+class Form {
+    /**
+     *
+     */
+    constructor() {
+        this.isSubmitted = false;
+    }
+
+    /**
+     *
+     */
+    submit() {
+        this.isSubmitted = true;
+    }
+
+    /**
+     * @return {bool}
+     */
+    isSubmitted() {
+        return this.isSubmitted;
+    }
+}
+/**
+ *
+ */
 class Errors {
     /**
      *
@@ -59,6 +84,7 @@ new Vue({
         name: '',
         description: '',
         errors: new Errors(),
+        form: new Form(),
     },
     methods: {
         onSubmit() {
@@ -67,6 +93,9 @@ new Vue({
                 .catch((error) => {
                     console.log('error!!');
                     this.errors.set(error.response.data.errors);
+                })
+                .then(() => {
+                    this.form.submit();
                 });
         },
         onSuccess(response) {
