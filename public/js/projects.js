@@ -22,10 +22,13 @@ class Form {
      * @return {object}
      */
     data() {
-        const data = Object.assign({}, this);
+        const data = {};
 
-        delete data.originalData;
-        delete data.errors;
+        for (const property in this.originalData) {
+            if (this[property] !== undefined) {
+                data[property] = this[property];
+            }
+        }
 
         return data;
     }
@@ -40,37 +43,48 @@ class Form {
             }
         }
 
+        this.errors.clear();
         this.setIsValidated(false);
     }
 
     /**
      * @param {string} requestType
      * @param {string} url
+     * @return {Promise}
      */
     submit(requestType, url) {
-        axios[requestType](url, this.data())
-            .then(this.onSuccess.bind(this))
-            .catch(this.onFail.bind(this));
+        return new Promise((resolve, reject) => {
+            axios[requestType](url, this.data())
+                .then((response) => {
+                    this.onSuccess(response.data);
+
+                    resolve(response.data);
+                })
+                .catch((error) => {
+                    this.onFail(error.response.data.errors);
+
+                    reject(error.response.data.errors);
+                });
+        });
     }
 
     /**
      *
-     * @param {string} response
+     * @param {object} data
      */
-    onSuccess(response) {
-        alert(response.data.message);
+    onSuccess(data) {
+        alert(data.message);
 
-        this.errors.clear();
         this.reset();
     }
 
     /**
      *
-     * @param {string} error
+     * @param {string} errors
      */
-    onFail(error) {
-        console.log(error);
-        this.errors.set(error.response.data.errors);
+    onFail(errors) {
+        console.log(errors);
+        this.errors.set(errors);
         this.setIsValidated(true);
     }
 
@@ -159,7 +173,13 @@ new Vue({
     },
     methods: {
         onSubmit() {
-            this.form.submit('post', '/projects');
+            this.form.submit('post', '/projects')
+                .then((data) => {
+                    alert('Handling it!');
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         },
     },
 });
