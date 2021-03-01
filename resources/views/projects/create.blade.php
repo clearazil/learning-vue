@@ -32,7 +32,7 @@
 
                     <form method="POST" action="{{ route('projects.project.store') }}" accept-charset="UTF-8"
                         id="create_project_form" name="create_project_form" class="form-horizontal"
-                        @submit.prevent="onSubmit" @keydown="errors.clear($event.target.name)"
+                        @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)"
 
                     >
                     {{ csrf_field() }}
@@ -42,7 +42,7 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <input class="btn btn-primary" :disabled="errors.any()" type="submit" value="Add">
+                                <input class="btn btn-primary" :disabled="form.errors.any()" type="submit" value="Add">
                             </div>
                         </div>
 

@@ -3,10 +3,10 @@
     <label for="name" class="col-md-2 control-label">Name</label>
     <div class="col-md-10">
         <input
-            class="form-control" :class="{ 'is-valid': form.isSubmitted && !errors.get('name'), 'is-invalid': errors.get('name') }" name="name" type="text"
+            class="form-control" :class="{ 'is-valid': form.isValidated && !form.errors.get('name'), 'is-invalid': form.errors.get('name') }" name="name" type="text"
             id="name" value="{{ old('name', optional($project)->name) }}"
-            minlength="1" maxlength="255" v-model="name">
-            <p class="invalid-feedback"  v-if="errors.has('name')" v-text="errors.get('name')">@error('name') {{message}} @enderror</p>
+            minlength="1" maxlength="255" v-model="form.name">
+            <p class="invalid-feedback"  v-if="form.errors.has('name')" v-text="form.errors.get('name')">@error('name') {{message}} @enderror</p>
     </div>
 </div>
 
@@ -14,11 +14,11 @@
     <label for="description" class="col-md-2 control-label">Description</label>
     <div class="col-md-10">
         <input
-            class="form-control" :class="{ 'is-valid': form.isSubmitted && !errors.get('description'), 'is-invalid': errors.has('description') }" name="description" type="text"
+            class="form-control" :class="{ 'is-valid': form.isValidated && !form.errors.get('description'), 'is-invalid': form.errors.has('description') }" name="description" type="text"
             id="description" value="{{ old('description', optional($project)->description) }}"
-            minlength="1" maxlength="255" v-model="description"
+            minlength="1" maxlength="255" v-model="form.description"
         >
-        <p class="invalid-feedback" v-if="errors.has('description')" v-text="errors.get('description')">@error('description') {{message}} @enderror</p>
+        <p class="invalid-feedback" v-if="form.errors.has('description')" v-text="form.errors.get('description')">@error('description') {{message}} @enderror</p>
     </div>
 </div>
 
