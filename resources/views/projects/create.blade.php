@@ -4,6 +4,7 @@
 
     <section>
         <div class="container" id="app">
+            <example></example>
             <div class="panel panel-default">
 
                 <div class="panel-heading clearfix">
@@ -57,8 +58,7 @@
 
 @section('scripts')
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="{{ asset('js/projects.js') }}" type="module"></script>
+    <script src="{{ asset('js/bundle.js') }}" type="module"></script>
 
 @endsection
 
