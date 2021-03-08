@@ -17,6 +17,7 @@ mix.webpackConfig({
 });
 
 mix.js('resources/assets/js/app.js', 'public/js/bundle.js')
-    .js('resources/assets/js/shared-state.js', 'public/js/shared-state.js');
+    .js('resources/assets/js/shared-state.js', 'public/js/shared-state.js')
+    .js('resources/assets/js/custom-input-components.js', 'public/assets/js/custom-input-components.js');
 
 

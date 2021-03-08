@@ -30,4 +30,9 @@ class IndexController extends Controller
     {
         return view('index.sharedState');
     }
+
+    public function customInputComponents()
+    {
+        return view('index.customInputComponents');
+    }
 }

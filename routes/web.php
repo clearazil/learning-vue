@@ -47,3 +47,4 @@ Route::group([
 });
 
 Route::get('/shared-state', [IndexController::class, 'sharedState']);
+Route::get('/custom-input-components', [IndexController::class, 'customInputComponents']);
