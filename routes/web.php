@@ -3,6 +3,7 @@
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\SpaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,4 @@ Route::group([
 
 Route::get('/shared-state', [IndexController::class, 'sharedState']);
 Route::get('/custom-input-components', [IndexController::class, 'customInputComponents']);
+Route::get('/spa', [SpaController::class, 'index']);
