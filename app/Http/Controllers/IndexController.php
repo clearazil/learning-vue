@@ -25,4 +25,9 @@ class IndexController extends Controller
     {
         return view('index.ajaxRequests');
     }
+
+    public function sharedState()
+    {
+        return view('index.sharedState');
+    }
 }

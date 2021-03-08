@@ -16,6 +16,7 @@ mix.webpackConfig({
     },
 });
 
-mix.js('resources/assets/js/app.js', 'public/js/bundle.js');
+mix.js('resources/assets/js/app.js', 'public/js/bundle.js')
+    .js('resources/assets/js/shared-state.js', 'public/js/shared-state.js');
 
 

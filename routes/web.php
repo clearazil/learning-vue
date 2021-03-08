@@ -44,5 +44,6 @@ Route::group([
          ->name('projects.project.update')->where('id', '[0-9]+');
     Route::delete('/project/{project}', [ProjectsController::class, 'destroy'])
          ->name('projects.project.destroy')->where('id', '[0-9]+');
-
 });
+
+Route::get('/shared-state', [IndexController::class, 'sharedState']);

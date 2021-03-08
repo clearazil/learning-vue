@@ -5,6 +5,7 @@
 /public/css/app.css
 /public/js/main.js
 /public/js/bundle*
+/public/js/shared-state.js
 /storage/*.key
 /vendor
 .env
