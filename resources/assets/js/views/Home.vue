@@ -12,7 +12,7 @@
                 <div class="card-header">{{ status.user.name }} said...
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{ postedOn(status) }}</h5>
+                    <h5 class="card-title">{{ status.created_at | ago | capitalize }}</h5>
                     <p class="card-text" v-text="status.body"></p>
                 </div>
             </div>
@@ -34,9 +34,12 @@ export default {
     created() {
         Status.all((statuses) => this.statuses = statuses);
     },
-    methods: {
-        postedOn(status) {
-            return moment(status.created_at).fromNow();
+    filters: {
+        ago(date) {
+            return moment(date).fromNow();
+        },
+        capitalize(value) {
+            return value.toUpperCase();
         },
     },
 };
