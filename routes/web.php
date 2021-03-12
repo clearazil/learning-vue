@@ -4,6 +4,7 @@ use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\SpaController;
+use App\Http\Controllers\StatusesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +51,5 @@ Route::group([
 Route::get('/shared-state', [IndexController::class, 'sharedState']);
 Route::get('/custom-input-components', [IndexController::class, 'customInputComponents']);
 Route::get('/spa', [SpaController::class, 'index']);
-Route::get('/statuses', [SpaController::class, 'status']);
+Route::get('/statuses', [StatusesController::class, 'index']);
+Route::post('/statuses', [StatusesController::class, 'store']);
