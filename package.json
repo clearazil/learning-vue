@@ -26,6 +26,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "laravel-mix": "^6.0.13"
+        "laravel-mix": "^6.0.13",
+        "moment": "^2.29.1"
     }
 }

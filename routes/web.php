@@ -50,3 +50,4 @@ Route::group([
 Route::get('/shared-state', [IndexController::class, 'sharedState']);
 Route::get('/custom-input-components', [IndexController::class, 'customInputComponents']);
 Route::get('/spa', [SpaController::class, 'index']);
+Route::get('/statuses', [SpaController::class, 'status']);

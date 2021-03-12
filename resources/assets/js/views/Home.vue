@@ -7,6 +7,39 @@
                     <p class="card-text">I'm an example component!</p>
                 </div>
             </div>
+            <div class="clearfix mt-6"></div>
+            <div class="card text-white bg-secondary mb-3" v-for="status in statuses" :key="status.id">
+                <div class="card-header">{{ status.user.name }} said...
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ postedOn(status) }}</h5>
+                    <p class="card-text" v-text="status.body"></p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
+
+<script>
+
+import moment from 'moment';
+import Status from '../models/Status';
+
+export default {
+    data() {
+        return {
+            statuses: [],
+        };
+    },
+    created() {
+        Status.all((statuses) => this.statuses = statuses);
+    },
+    methods: {
+        postedOn(status) {
+            return moment(status.created_at).fromNow();
+        },
+    },
+};
+
+
+</script>
